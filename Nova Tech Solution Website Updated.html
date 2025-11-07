@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Tech Solutions - IT Support Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary: #1a2a6c;
+      --secondary: #4dc7ff;
+      --accent: #ff6b6b;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #666;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent), #ff8e8e);
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), #2a3a7c);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 180px;
+      height: 80px;
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .logo-text-1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .logo-text-2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+      letter-spacing: 2px;
+      margin-top: 3px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: var(--secondary);
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 8rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* Features Section */
+    .features {
+      background-color: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    /* About Page Specific Styles */
+    .about-intro {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .about-intro p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .mission-vision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .mission-card, .vision-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover, .vision-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .mission-card h3, .vision-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+
+    .mission-card h3 i, .vision-card h3 i {
+      color: var(--secondary);
+    }
+
+    /* Company History Timeline */
+    .history-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .history-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--secondary);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      width: 50%;
+      padding: 0 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .timeline-content::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      right: -30px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      left: -30px;
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Team Section */
+    .team-section {
+      margin-bottom: 4rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+
+    .member-photo {
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+    }
+
+    .member-info {
+      padding: 1.5rem;
+    }
+
+    .member-info h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .member-bio {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Values Section */
+    .values-section {
+      margin-bottom: 4rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+    }
+
+    /* Certifications Section */
+    .certifications-section {
+      margin-bottom: 4rem;
+    }
+
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .certification-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .certification-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .certification-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+
+    .service-content h3 {
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .service-content p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .service-features li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-features li i {
+      color: var(--secondary);
+    }
+
+    /* Asset Register Section */
+    .asset-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .asset-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 250px;
+    }
+
+    .asset-table-container {
+      overflow-x: auto;
+    }
+
+    .asset-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+
+    .asset-table th {
+      background: var(--primary);
+      color: white;
+      text-align: left;
+      padding: 1rem;
+    }
+
+    .asset-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .asset-table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .asset-table tr:hover {
+      background: #f0f7ff;
+    }
+
+    /* Service Desk Section */
+    .servicedesk-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .servicedesk-form {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .checkbox-item input {
+      margin-top: 3px;
+    }
+
+    .department-tag {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-left: 10px;
+      background: #e6f3ff;
+      color: var(--primary);
+    }
+
+    .priority-selector {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .priority-option {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .priority-option:hover {
+      border-color: var(--secondary);
+    }
+
+    .priority-option.selected {
+      border-color: var(--primary);
+      background: #f0f7ff;
+    }
+
+    .priority-option input {
+      display: none;
+    }
+
+    .priority-low {
+      border-left: 4px solid #2ecc71;
+    }
+
+    .priority-medium {
+      border-left: 4px solid #f39c12;
+    }
+
+    .priority-high {
+      border-left: 4px solid #e74c3c;
+    }
+
+    .priority-critical {
+      border-left: 4px solid #8e44ad;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      background: linear-gradient(135deg, var(--primary), #2a3a7c);
+      color: white;
+      padding: 4rem 0;
+      border-radius: 10px;
+    }
+
+    .testimonials-section h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .testimonial-text:before {
+      content: """;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.2);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+    }
+
+    .author-info h4 {
+      margin-bottom: 0.3rem;
+      color: white;
+    }
+
+    .author-info p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: white;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .contact-details h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    /* Feedback Form */
+    .feedback-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .feedback-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .feedback-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .rating {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .rating input {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 1.5rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: #ffc107;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), #2a3a7c);
+      color: white;
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-column p, .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.8rem;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Page Content */
+    .page-content {
+      padding: 3rem 0;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0.5rem;
+      }
+
+      .mobile-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .feedback-section, .asset-section, .servicedesk-section {
+        padding: 2rem 1.5rem;
+      }
+      
+      .logo {
+        width: 150px;
+        height: 70px;
+      }
+      
+      .logo-text-1 {
+        font-size: 1.5rem;
+      }
+      
+      .logo-text-2 {
+        font-size: 0.8rem;
+      }
+
+      .asset-controls {
+        flex-direction: column;
+      }
+
+      .search-box input {
+        width: 100%;
+      }
+
+      .priority-selector {
+        flex-direction: column;
+      }
+
+      .history-timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-content::after {
+        left: -40px !important;
+      }
+    }
+
+    /* Page-specific styles */
+    .page {
+      display: none;
+    }
+    
+    .page.active {
+      display: block;
+    }
+
+    /* Mobile menu styles */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    /* Enhanced Asset Register Styles */
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 0;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: modalopen 0.3s;
+    }
+
+    @keyframes modalopen {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary), #2a3a7c);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: white;
+    }
+
+    .close {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: var(--secondary);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 1.5rem;
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #5a6268;
+    }
+
+    .btn-danger {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #ff5252;
+    }
+
+    /* Asset Table Actions */
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .edit-btn {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .edit-btn:hover {
+      background: #3db8ff;
+    }
+
+    .delete-btn {
+      background: var(--accent);
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background: #ff5252;
+    }
+
+    /* Status Badges */
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .status-active {
+      background: #e6f7ee;
+      color: #0d8b4e;
+    }
+
+    .status-maintenance {
+      background: #fff4e6;
+      color: #e67e22;
+    }
+
+    .status-retired {
+      background: #ffe6e6;
+      color: #e74c3c;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .pagination button {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .pagination button.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .pagination button:disabled {
+      background: #f5f5f5;
+      color: #999;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-tools logo-icon"></i>
+          <div class="logo-text-1">NOVA </div>
+          <div class="logo-text-2">TECH SOLUTION </div>
+        </div>
+      </div>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+          <li><a href="#" class="nav-link" data-page="about">About</a></li>
+          <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+          <li><a href="#" class="nav-link" data-page="asset">Asset Register</a></li>
+          <li><a href="#" class="nav-link" data-page="servicedesk">Service Desk</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Page -->
+  <main id="home" class="page active">
+    <section class="hero">
+      <div class="container">
+        <h1>Expert Tech Solutions & IT Solutions</h1>
+        <p>We provide fast, reliable Tech Solutions services and comprehensive IT support to keep your business running smoothly. From hardware fixes to software troubleshooting, we've got you covered.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn" data-page="services">Our Services</a>
+          <a href="#" class="btn btn-accent" data-page="contact">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose Nova Tech Solutions?</h2>
+          <p>We deliver exceptional Tech Solutions services with a focus on speed, reliability, and customer satisfaction.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Expert Hardware Repair</h3>
+            <p>Our technicians specialize in diagnosing and fixing all computer hardware issues, from laptops to servers.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>24/7 Support</h3>
+            <p>Our expert team is available round-the-clock to resolve your IT issues and keep your systems running.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Fast Turnaround</h3>
+            <p>We understand downtime costs you money, so we work efficiently to get your systems back online quickly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-container">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              Nova Tech Solutions saved my business when our server crashed. Their team worked through the night to restore our data and get us back online.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">JD</div>
+              <div class="author-info">
+                <h4>John Davis</h4>
+                <p>CEO, TechForward Inc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              The laptop repair service was exceptional. They fixed my screen and keyboard in just a few hours when other shops quoted days for the repair.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SR</div>
+              <div class="author-info">
+                <h4>Sarah Rodriguez</h4>
+                <p>Freelance Designer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              We've been using Nova for all our IT needs for over three years. Their proactive maintenance has prevented countless issues before they became problems.
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MP</div>
+              <div class="author-info">
+                <h4>Michael Peterson</h4>
+                <p>Operations Director, Global Retail</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Need Tech Solutions Services?</h2>
+        <p>Contact us today for a free diagnosis and discover how our repair services can get your systems running smoothly again.</p>
+        <a href="#" class="btn btn-accent" data-page="contact">Get Started Today</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- About Page -->
+  <main id="about" class="page">
+    <section class="page-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>About Nova Tech Solutions</h2>
+          <p>Your trusted partner for expert Tech Solutions and IT support services.</p>
+        </div>
+
+        <section class="about-intro">
+          <p>
+            Nova Tech Solutions is a premier technology company specializing in Tech Solutions, IT support, and digital solutions. 
+            Our mission is to provide fast, reliable, and affordable Tech Solutions services to both individuals and businesses, 
+            ensuring minimal downtime and maximum productivity.
+          </p>
+        </section>
+
+        <section class="mission-vision">
+          <div class="mission-card">
+            <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+            <p>To deliver expert Tech Solutions and IT services with a focus on speed, reliability, and customer satisfaction, ensuring our clients' technology works seamlessly.</p>
+          </div>
+          <div class="vision-card">
+            <h3><i class="fas fa-eye"></i> Our Vision</h3>
+            <p>To be the leading provider of Tech Solutions services in our region, known for technical excellence, fast turnaround times, and exceptional customer service.</p>
+          </div>
+        </section>
+
+        <section class="history-section">
+          <div class="section-header">
+            <h2>Our Journey</h2>
+            <p>From a small repair shop to a trusted IT partner for businesses</p>
+          </div>
+          <div class="history-timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">2015</div>
+                <h3>Company Founded</h3>
+                <p>Nova Tech Solutions was established with a small team of technicians focused on personal Tech Solutionss.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">2017</div>
+                <h3>Business Expansion</h3>
+                <p>Expanded our services to include business IT support and network solutions, serving our first corporate clients.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">2019</div>
+                <h3>Certification Achieved</h3>
+                <p>Our technicians achieved multiple industry certifications, enhancing our service capabilities and expertise.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">2021</div>
+                <h3>New Facility</h3>
+                <p>Moved to a larger facility with state-of-the-art diagnostic equipment and expanded our team to 15 technicians.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">2025</div>
+                <h3>Service Expansion</h3>
+                <p>Launched our 24/7 emergency support service and mobile repair units for on-site business support.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="team-section">
+          <div class="section-header">
+            <h2>Meet Our Team</h2>
+            <p>Our skilled technicians and support staff are dedicated to providing exceptional service</p>
+          </div>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="member-photo">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-info">
+                <h3>Shammah Sadiki</h3>
+                <div class="member-role">Lead Experience Architect</div>
+                <p class="member-bio">With 10+ years in Tech Solutions, Shammah specializes in hardware diagnostics and data recovery.</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-photo">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-info">
+                <h3>Thapelo Mathebe</h3>
+                <div class="member-role">Chief Strategy & Operations Officer</div>
+                <p class="member-bio">Thapelo ensures our repair process is efficient and our customers are always satisfied with our service.</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-photo">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-info">
+                <h3>Ridwan Macogo</h3>
+                <div class="member-role">Director of Market Intelligence</div>
+                <p class="member-bio">Ridwan handles all network-related repairs and installations for our business clients.</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-photo">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-info">
+                <h3>Llewellyn Coetzee</h3>
+                <div class="member-role">Chief Visionary Officer (CVO)</div>
+                <p class="member-bio">Llewellyn is your first point of contact, ensuring your repair experience is smooth and stress-free.</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-photo">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="member-info">
+                <h3>Unathi Muavha</h3>
+                <div class="member-role">Head of Technology & Innovation</div>
+                <p class="member-bio">Ensure the company always has the tools and equipment needed for the service required.</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="values-section">
+          <div class="section-header">
+            <h2>Our Values</h2>
+            <p>The principles that guide everything we do</p>
+          </div>
+          <div class="values-grid">
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Reliability</h3>
+              <p>We stand behind our work with warranties and guarantees on all repairs.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Speed</h3>
+              <p>We understand that downtime costs money, so we work efficiently to resolve issues quickly.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h3>Customer Focus</h3>
+              <p>Your satisfaction is our top priority. We communicate clearly and provide honest advice.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <h3>Expertise</h3>
+              <p>Our technicians are continuously trained on the latest technologies and repair techniques.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="certifications-section">
+          <div class="section-header">
+            <h2>Our Certifications</h2>
+            <p>Industry-recognized credentials that demonstrate our expertise</p>
+          </div>
+          <div class="certifications-grid">
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h4>CompTIA A+</h4>
+            </div>
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h4>Microsoft Certified</h4>
+            </div>
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h4>Apple Certified</h4>
+            </div>
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h4>Cisco Certified</h4>
+            </div>
+          </div>
+        </section>
+
+        <section class="feedback-section">
+          <h2>Share Your Feedback</h2>
+          <form class="feedback-form" id="feedbackForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="rating">Your Rating</label>
+              <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1">★</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Feedback</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Feedback</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Services Page -->
+  <main id="services" class="page">
+    <section class="page-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>Our Services</h2>
+          <p>Comprehensive Tech Solutions and IT solutions designed to meet your needs.</p>
+        </div>
+
+        <section class="services-section">
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <div class="service-content">
+                <h3>Laptop & Desktop Repair</h3>
+                <p>Expert diagnosis and repair of all laptop and desktop computer issues, from screen replacements to motherboard repairs.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> Screen Replacement</li>
+                  <li><i class="fas fa-check"></i> Keyboard Repair</li>
+                  <li><i class="fas fa-check"></i> Motherboard Repair</li>
+                  <li><i class="fas fa-check"></i> Hardware Upgrades</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="service-content">
+                <h3>Data Recovery</h3>
+                <p>Professional data recovery services to retrieve your important files from damaged or corrupted storage devices.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> Hard Drive Recovery</li>
+                  <li><i class="fas fa-check"></i> SSD Data Recovery</li>
+                  <li><i class="fas fa-check"></i> RAID Reconstruction</li>
+                  <li><i class="fas fa-check"></i> Backup Solutions</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-virus"></i>
+              </div>
+              <div class="service-content">
+                <h3>Virus & Malware Removal</h3>
+                <p>Complete removal of viruses, malware, and ransomware with protection to prevent future infections.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> Virus Removal</li>
+                  <li><i class="fas fa-check"></i> Malware Scanning</li>
+                  <li><i class="fas fa-check"></i> System Disinfection</li>
+                  <li><i class="fas fa-check"></i> Security Software</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="service-content">
+                <h3>Network Setup & Repair</h3>
+                <p>Professional network installation, configuration, and troubleshooting for homes and businesses.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> Wi-Fi Setup</li>
+                  <li><i class="fas fa-check"></i> Network Troubleshooting</li>
+                  <li><i class="fas fa-check"></i> Router Configuration</li>
+                  <li><i class="fas fa-check"></i> Business Networks</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="service-content">
+                <h3>Hardware Upgrades</h3>
+                <p>Enhance your computer's performance with professional hardware upgrades and component replacements.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> RAM Upgrades</li>
+                  <li><i class="fas fa-check"></i> SSD Installation</li>
+                  <li><i class="fas fa-check"></i> Graphics Cards</li>
+                  <li><i class="fas fa-check"></i> Power Supplies</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="service-content">
+                <h3>IT Support Services</h3>
+                <p>Comprehensive IT support for businesses, including managed services, help desk, and on-site assistance.</p>
+                <ul class="service-features">
+                  <li><i class="fas fa-check"></i> Help Desk Support</li>
+                  <li><i class="fas fa-check"></i> Remote Assistance</li>
+                  <li><i class="fas fa-check"></i> On-site Support</li>
+                  <li><i class="fas fa-check"></i> Managed Services</li>
+                </ul>
+                <a href="#" class="btn" data-page="contact">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="container">
+            <h2>Need a Custom Solution?</h2>
+            <p>We specialize in creating tailored IT solutions to address your specific Tech Solutions needs.</p>
+            <a href="#" class="btn btn-accent" data-page="contact">Request a Consultation</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Asset Register Page -->
+  <main id="asset" class="page">
+    <section class="page-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>IT Asset Register</h2>
+          <p>Track and manage all your IT assets in one centralized system.</p>
+        </div>
+
+        <section class="asset-section">
+          <div class="asset-controls">
+            <div class="search-box">
+              <input type="text" id="assetSearch" placeholder="Search assets...">
+              <button class="btn" id="searchBtn">Search</button>
+              <button class="btn" id="resetBtn">Reset</button>
+            </div>
+            <button class="btn" id="addAssetBtn">Add New Asset</button>
+          </div>
+
+          <div class="asset-table-container">
+            <table class="asset-table">
+              <thead>
+                <tr>
+                  <th>Asset ID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Purchase Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="assetTableBody">
+                <!-- Assets will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination" id="pagination">
+            <!-- Pagination will be populated by JavaScript -->
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Service Desk Page -->
+  <main id="servicedesk" class="page">
+    <section class="page-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>IT Service Desk</h2>
+          <p>Report issues and get help from our technical support team.</p>
+        </div>
+
+        <section class="servicedesk-section">
+          <form class="servicedesk-form" id="servicedeskForm">
+            <div class="form-group">
+              <label for="ticketName">Your Name</label>
+              <input type="text" id="ticketName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="ticketEmail">Email Address</label>
+              <input type="email" id="ticketEmail" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="ticketDepartment">Department</label>
+              <select id="ticketDepartment" class="form-control" required>
+                <option value="">Select Department</option>
+                <option value="sales">Sales</option>
+                <option value="marketing">Marketing</option>
+                <option value="finance">Finance</option>
+                <option value="hr">Human Resources</option>
+                <option value="operations">Operations</option>
+                <option value="it">IT</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Issue Category</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-hardware" name="issue-category" value="hardware">
+                  <label for="issue-hardware">Hardware Issues <span class="department-tag">Hardware Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-software" name="issue-category" value="software">
+                  <label for="issue-software">Software Issues <span class="department-tag">Software Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-network" name="issue-category" value="network">
+                  <label for="issue-network">Network Problems <span class="department-tag">Network Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-email" name="issue-category" value="email">
+                  <label for="issue-email">Email Problems <span class="department-tag">Infrastructure Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-security" name="issue-category" value="security">
+                  <label for="issue-security">Security Concerns <span class="department-tag">Security Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-access" name="issue-category" value="access">
+                  <label for="issue-access">Access/Permissions <span class="department-tag">Admin Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-performance" name="issue-category" value="performance">
+                  <label for="issue-performance">Performance Issues <span class="department-tag">Infrastructure Team</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-backup" name="issue-category" value="backup">
+                  <label for="issue-backup">Backup/Recovery <span class="department-tag">Data Management</span></label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="issue-other" name="issue-category" value="other">
+                  <label for="issue-other">Other Issues <span class="department-tag">General Support</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Priority Level</label>
+              <div class="priority-selector">
+                <div class="priority-option priority-low" data-priority="low">
+                  <input type="radio" id="priority-low" name="priority" value="low">
+                  <label for="priority-low">
+                    <h4>Low</h4>
+                    <p>Minor issue, no impact on work</p>
+                  </label>
+                </div>
+                <div class="priority-option priority-medium" data-priority="medium">
+                  <input type="radio" id="priority-medium" name="priority" value="medium">
+                  <label for="priority-medium">
+                    <h4>Medium</h4>
+                    <p>Some impact, workaround available</p>
+                  </label>
+                </div>
+                <div class="priority-option priority-high" data-priority="high">
+                  <input type="radio" id="priority-high" name="priority" value="high">
+                  <label for="priority-high">
+                    <h4>High</h4>
+                    <p>Significant impact on work</p>
+                  </label>
+                </div>
+                <div class="priority-option priority-critical" data-priority="critical">
+                  <input type="radio" id="priority-critical" name="priority" value="critical">
+                  <label for="priority-critical">
+                    <h4>Critical</h4>
+                    <p>Business operations halted</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ticketDescription">Issue Description</label>
+              <textarea id="ticketDescription" class="form-control" required placeholder="Please provide a detailed description of the issue you're experiencing..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="ticketSteps">Steps to Reproduce</label>
+              <textarea id="ticketSteps" class="form-control" placeholder="If applicable, describe the steps to reproduce the issue..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Submit Ticket</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Contact Page -->
+  <main id="contact" class="page">
+    <section class="page-content">
+      <div class="container">
+        <div class="page-header">
+          <h2>Contact Us</h2>
+          <p>Get in touch with our team to discuss your Tech Solutions needs and how we can help.</p>
+        </div>
+
+        <section class="contact-section">
+          <div class="contact-container">
+            <div class="contact-info">
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Our Location</h3>
+                  <p>123 Paul Kruger, Pretoria, 0083</p>
+                </div>
+              </div>
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Phone Number</h3>
+                  <p>011-123-4567</p>
+                </div>
+              </div>
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email Address</h3>
+                  <p>info@novatechsolutions.com</p>
+                </div>
+              </div>
+              <div class="contact-card">
+                <div class="contact-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Business Hours</h3>
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p>Emergency Support: 24/7</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form">
+              <h3>Send Us a Message</h3>
+              <form id="contactForm">
+                <div class="form-group">
+                  <label for="contact-name">Your Name</label>
+                  <input type="text" id="contact-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email Address</label>
+                  <input type="email" id="contact-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-subject">Subject</label>
+                  <input type="text" id="contact-subject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-message">Message</label>
+                  <textarea id="contact-message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Asset Modal for Add/Edit -->
+  <div id="assetModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add New Asset</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="assetForm">
+          <input type="hidden" id="assetId">
+          <div class="form-group">
+            <label for="assetName">Asset Name *</label>
+            <input type="text" id="assetName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="assetCategory">Category *</label>
+            <select id="assetCategory" class="form-control" required>
+              <option value="">Select Category</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Desktop">Desktop</option>
+              <option value="Server">Server</option>
+              <option value="Network">Network</option>
+              <option value="Printer">Printer</option>
+              <option value="Peripheral">Peripheral</option>
+              <option value="UPS">UPS</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="assetAssignedTo">Assigned To</label>
+            <input type="text" id="assetAssignedTo" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="assetLocation">Location *</label>
+            <input type="text" id="assetLocation" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="assetPurchaseDate">Purchase Date *</label>
+            <input type="date" id="assetPurchaseDate" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="assetStatus">Status *</label>
+            <select id="assetStatus" class="form-control" required>
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="retired">Retired</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="assetNotes">Notes</label>
+            <textarea id="assetNotes" class="form-control" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+            <button type="submit" class="btn" id="saveBtn">Save Asset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Confirm Delete</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this asset? This action cannot be undone.</p>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="logo">
+            <div class="logo-text-1">NOVA</div>
+            <div class="logo-text-2">Tech Solutions</div>
+          </div>
+          <p>Your trusted partner for expert Tech Solutions and IT support services.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <a href="#" class="nav-link" data-page="home">Home</a>
+          <a href="#" class="nav-link" data-page="about">About Us</a>
+          <a href="#" class="nav-link" data-page="services">Services</a>
+          <a href="#" class="nav-link" data-page="asset">Asset Register</a>
+          <a href="#" class="nav-link" data-page="servicedesk">Service Desk</a>
+          <a href="#" class="nav-link" data-page="contact">Contact</a>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <a href="#" class="nav-link" data-page="services">Laptop Repair</a>
+          <a href="#" class="nav-link" data-page="services">Data Recovery</a>
+          <a href="#" class="nav-link" data-page="services">Virus Removal</a>
+          <a href="#" class="nav-link" data-page="services">Network Setup</a>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Paul Kruger, Pretoria</p>
+          <p><i class="fas fa-phone"></i> 011-123-4567</p>
+          <p><i class="fas fa-envelope"></i> info@novatechsolutions.com</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Nova Tech Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      document.querySelector('.mobile-menu').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+      });
+
+      // Page navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pages = document.querySelectorAll('.page');
+
+      // Function to show a specific page
+      function showPage(pageId) {
+        // Hide all pages
+        pages.forEach(page => page.classList.remove('active'));
+        
+        // Show the selected page
+        document.getElementById(pageId).classList.add('active');
+        
+        // Update active state in navigation
+        navLinks.forEach(link => {
+          if (link.getAttribute('data-page') === pageId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+        
+        // Close mobile menu if open
+        document.querySelector('nav ul').classList.remove('show');
+        
+        // Scroll to top of page
+        window.scrollTo(0, 0);
+      }
+
+      // Add event listeners to all navigation links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pageId = this.getAttribute('data-page');
+          showPage(pageId);
+        });
+      });
+
+      // Add event listeners to all buttons that navigate to other pages
+      const pageButtons = document.querySelectorAll('a[data-page]');
+      pageButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const pageId = this.getAttribute('data-page');
+          showPage(pageId);
+        });
+      });
+
+      // Priority selector functionality
+      const priorityOptions = document.querySelectorAll('.priority-option');
+      priorityOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          priorityOptions.forEach(opt => opt.classList.remove('selected'));
+          this.classList.add('selected');
+          const radio = this.querySelector('input[type="radio"]');
+          radio.checked = true;
+        });
+      });
+
+      // Service desk form submission
+      document.getElementById('servicedeskForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('ticketName').value;
+        const email = document.getElementById('ticketEmail').value;
+        const department = document.getElementById('ticketDepartment').value;
+        const priority = document.querySelector('input[name="priority"]:checked')?.value;
+        const description = document.getElementById('ticketDescription').value;
+        
+        // Get selected issue categories
+        const selectedIssues = Array.from(document.querySelectorAll('input[name="issue-category"]:checked'))
+          .map(checkbox => checkbox.value);
+        
+        if (name && email && department && priority && description && selectedIssues.length > 0) {
+          // Determine which departments need to be notified based on selected issues
+          const departments = [];
+          if (selectedIssues.includes('hardware')) departments.push('Hardware Team');
+          if (selectedIssues.includes('software')) departments.push('Software Team');
+          if (selectedIssues.includes('network')) departments.push('Network Team');
+          if (selectedIssues.includes('email') || selectedIssues.includes('performance')) departments.push('Infrastructure Team');
+          if (selectedIssues.includes('security')) departments.push('Security Team');
+          if (selectedIssues.includes('access')) departments.push('Admin Team');
+          if (selectedIssues.includes('backup')) departments.push('Data Management');
+          if (selectedIssues.includes('other')) departments.push('General Support');
+          
+          // Remove duplicates
+          const uniqueDepartments = [...new Set(departments)];
+          
+          alert(`Thank you, ${name}! Your ticket has been submitted with ${priority} priority. The following teams have been notified: ${uniqueDepartments.join(', ')}`);
+          document.getElementById('servicedeskForm').reset();
+          priorityOptions.forEach(opt => opt.classList.remove('selected'));
+        } else {
+          alert('Please fill in all required fields and select at least one issue category.');
+        }
+      });
+
+      // Feedback form submission
+      document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+        const message = document.getElementById('message').value;
+        
+        // In a real application, you would send this data to a server
+        // For demonstration, we'll just show an alert
+        if (name && email && rating && message) {
+          alert(`Thank you, ${name}! Your feedback has been submitted.`);
+          document.getElementById('feedbackForm').reset();
+        } else {
+          alert('Please fill in all fields before submitting.');
+        }
+      });
+
+      // Contact form submission
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const subject = document.getElementById('contact-subject').value;
+        const message = document.getElementById('contact-message').value;
+        
+        // In a real application, you would send this data to a server
+        // For demonstration, we'll just show an alert
+        if (name && email && subject && message) {
+          alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`);
+          document.getElementById('contactForm').reset();
+        } else {
+          alert('Please fill in all fields before submitting.');
+        }
+      });
+
+      // Add hover effect to service cards
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+
+    // Enhanced Asset Register Functionality
+    // Enhanced asset data with unique IDs and additional fields
+    let assets = [
+      { id: "AST-001", name: "Dell Latitude 5420", category: "Laptop", assignedTo: "John Smith", location: "Floor 3 - Sales", purchaseDate: "2023-01-15", status: "active", notes: "Standard issue laptop" },
+      { id: "AST-002", name: "HP EliteDesk 800", category: "Desktop", assignedTo: "Sarah Johnson", location: "Floor 2 - Marketing", purchaseDate: "2022-11-20", status: "active", notes: "Marketing department desktop" },
+      { id: "AST-003", name: "Cisco Catalyst 2960", category: "Network", assignedTo: "IT Department", location: "Server Room", purchaseDate: "2021-05-10", status: "active", notes: "Core network switch" },
+      { id: "AST-004", name: "Apple MacBook Pro", category: "Laptop", assignedTo: "Michael Chen", location: "Floor 4 - Development", purchaseDate: "2023-03-05", status: "active", notes: "Developer laptop" },
+      { id: "AST-005", name: "Dell PowerEdge R740", category: "Server", assignedTo: "IT Department", location: "Data Center", purchaseDate: "2020-08-12", status: "maintenance", notes: "Primary database server" },
+      { id: "AST-006", name: "Samsung Monitor 24\"", category: "Peripheral", assignedTo: "Lisa Brown", location: "Floor 3 - Finance", purchaseDate: "2023-02-28", status: "active", notes: "Dual monitor setup" },
+      { id: "AST-007", name: "Canon ImageCLASS", category: "Printer", assignedTo: "Shared", location: "Floor 2 - Copy Room", purchaseDate: "2022-07-15", status: "active", notes: "Color laser printer" },
+      { id: "AST-008", name: "Lenovo ThinkPad X1", category: "Laptop", assignedTo: "Robert Wilson", location: "Floor 4 - Management", purchaseDate: "2021-12-10", status: "retired", notes: "Replaced with newer model" },
+      { id: "AST-009", name: "APC Smart-UPS 1500", category: "UPS", assignedTo: "IT Department", location: "Server Room", purchaseDate: "2020-11-05", status: "active", notes: "Battery backup for servers" },
+      { id: "AST-010", name: "Logitech Webcam C920", category: "Peripheral", assignedTo: "Marketing Team", location: "Floor 2 - Conference Room", purchaseDate: "2023-04-18", status: "active", notes: "Video conferencing" }
+    ];
+
+    // Track current asset being edited/deleted
+    let currentAssetId = null;
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    // DOM Elements
+    const assetModal = document.getElementById('assetModal');
+    const deleteModal = document.getElementById('deleteModal');
+    const assetForm = document.getElementById('assetForm');
+    const modalTitle = document.getElementById('modalTitle');
+
+    // Initialize asset functionality when the asset page is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Render initial asset table
+      renderAssetTable(assets);
+      
+      // Add asset button
+      document.getElementById('addAssetBtn').addEventListener('click', function() {
+        openAssetModal();
+      });
+      
+      // Search functionality
+      document.getElementById('searchBtn').addEventListener('click', function() {
+        const searchTerm = document.getElementById('assetSearch').value.toLowerCase();
+        const filteredAssets = assets.filter(asset => 
+          asset.id.toLowerCase().includes(searchTerm) ||
+          asset.name.toLowerCase().includes(searchTerm) ||
+          asset.category.toLowerCase().includes(searchTerm) ||
+          asset.assignedTo.toLowerCase().includes(searchTerm) ||
+          asset.location.toLowerCase().includes(searchTerm)
+        );
+        renderAssetTable(filteredAssets);
+      });
+      
+      // Reset search
+      document.getElementById('resetBtn').addEventListener('click', function() {
+        document.getElementById('assetSearch').value = '';
+        renderAssetTable(assets);
+      });
+      
+      // Asset form submission
+      assetForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveAsset();
+      });
+      
+      // Modal close buttons
+      document.querySelectorAll('.close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+          assetModal.style.display = 'none';
+          deleteModal.style.display = 'none';
+        });
+      });
+      
+      // Cancel buttons
+      document.getElementById('cancelBtn').addEventListener('click', function() {
+        assetModal.style.display = 'none';
+      });
+      
+      document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
+        deleteModal.style.display = 'none';
+      });
+      
+      // Delete confirmation
+      document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        deleteAsset(currentAssetId);
+        deleteModal.style.display = 'none';
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === assetModal) {
+          assetModal.style.display = 'none';
+        }
+        if (e.target === deleteModal) {
+          deleteModal.style.display = 'none';
+        }
+      });
+    });
+
+    // Function to render asset table
+    function renderAssetTable(assetsToRender) {
+      const tableBody = document.getElementById('assetTableBody');
+      tableBody.innerHTML = '';
+      
+      // Calculate pagination
+      const totalPages = Math.ceil(assetsToRender.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, assetsToRender.length);
+      const paginatedAssets = assetsToRender.slice(startIndex, endIndex);
+      
+      // Render table rows
+      paginatedAssets.forEach(asset => {
+        const row = document.createElement('tr');
+        
+        let statusClass = '';
+        let statusText = '';
+        
+        switch(asset.status) {
+          case 'active':
+            statusClass = 'status-active';
+            statusText = 'Active';
+            break;
+          case 'maintenance':
+            statusClass = 'status-maintenance';
+            statusText = 'Maintenance';
+            break;
+          case 'retired':
+            statusClass = 'status-retired';
+            statusText = 'Retired';
+            break;
+        }
+        
+        row.innerHTML = `
+          <td>${asset.id}</td>
+          <td>${asset.name}</td>
+          <td>${asset.category}</td>
+          <td>${asset.assignedTo}</td>
+          <td>${asset.location}</td>
+          <td>${formatDate(asset.purchaseDate)}</td>
+          <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn edit-btn" onclick="editAsset('${asset.id}')">Edit</button>
+              <button class="action-btn delete-btn" onclick="confirmDelete('${asset.id}')">Delete</button>
+            </div>
+          </td>
+        `;
+        
+        tableBody.appendChild(row);
+      });
+      
+      // Render pagination
+      renderPagination(totalPages);
+    }
+
+    // Function to render pagination
+    function renderPagination(totalPages) {
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = '';
+      
+      if (totalPages <= 1) return;
+      
+      // Previous button
+      const prevButton = document.createElement('button');
+      prevButton.innerHTML = '&laquo;';
+      prevButton.disabled = currentPage === 1;
+      prevButton.addEventListener('click', function() {
+        if (currentPage > 1) {
+          currentPage--;
+          renderAssetTable(assets);
+        }
+      });
+      paginationContainer.appendChild(prevButton);
+      
+      // Page buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = i === currentPage ? 'active' : '';
+        pageButton.addEventListener('click', function() {
+          currentPage = i;
+          renderAssetTable(assets);
+        });
+        paginationContainer.appendChild(pageButton);
+      }
+      
+      // Next button
+      const nextButton = document.createElement('button');
+      nextButton.innerHTML = '&raquo;';
+      nextButton.disabled = currentPage === totalPages;
+      nextButton.addEventListener('click', function() {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderAssetTable(assets);
+        }
+      });
+      paginationContainer.appendChild(nextButton);
+    }
+
+    // Function to open asset modal for adding
+    function openAssetModal() {
+      modalTitle.textContent = 'Add New Asset';
+      assetForm.reset();
+      document.getElementById('assetId').value = '';
+      assetModal.style.display = 'block';
+    }
+
+    // Function to edit asset
+    function editAsset(assetId) {
+      const asset = assets.find(a => a.id === assetId);
+      if (asset) {
+        modalTitle.textContent = 'Edit Asset';
+        document.getElementById('assetId').value = asset.id;
+        document.getElementById('assetName').value = asset.name;
+        document.getElementById('assetCategory').value = asset.category;
+        document.getElementById('assetAssignedTo').value = asset.assignedTo;
+        document.getElementById('assetLocation').value = asset.location;
+        document.getElementById('assetPurchaseDate').value = asset.purchaseDate;
+        document.getElementById('assetStatus').value = asset.status;
+        document.getElementById('assetNotes').value = asset.notes || '';
+        
+        assetModal.style.display = 'block';
+      }
+    }
+
+    // Function to save asset (both add and update)
+    function saveAsset() {
+      const assetId = document.getElementById('assetId').value;
+      const assetData = {
+        name: document.getElementById('assetName').value,
+        category: document.getElementById('assetCategory').value,
+        assignedTo: document.getElementById('assetAssignedTo').value,
+        location: document.getElementById('assetLocation').value,
+        purchaseDate: document.getElementById('assetPurchaseDate').value,
+        status: document.getElementById('assetStatus').value,
+        notes: document.getElementById('assetNotes').value
+      };
+      
+      // Validate required fields
+      if (!assetData.name || !assetData.category || !assetData.location || !assetData.purchaseDate || !assetData.status) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      if (assetId) {
+        // Update existing asset
+        const index = assets.findIndex(a => a.id === assetId);
+        if (index !== -1) {
+          assets[index] = { ...assets[index], ...assetData };
+        }
+      } else {
+        // Add new asset
+        const newId = generateAssetId();
+        assets.unshift({
+          id: newId,
+          ...assetData
+        });
+      }
+      
+      // Reset to first page when adding new assets
+      if (!assetId) {
+        currentPage = 1;
+      }
+      
+      renderAssetTable(assets);
+      assetModal.style.display = 'none';
+      
+      // Show success message
+      alert(`Asset ${assetId ? 'updated' : 'added'} successfully!`);
+    }
+
+    // Function to confirm deletion
+    function confirmDelete(assetId) {
+      currentAssetId = assetId;
+      deleteModal.style.display = 'block';
+    }
+
+    // Function to delete asset
+    function deleteAsset(assetId) {
+      assets = assets.filter(asset => asset.id !== assetId);
+      
+      // Adjust current page if needed
+      const totalPages = Math.ceil(assets.length / itemsPerPage);
+      if (currentPage > totalPages && totalPages > 0) {
+        currentPage = totalPages;
+      } else if (totalPages === 0) {
+        currentPage = 1;
+      }
+      
+      renderAssetTable(assets);
+      
+      // Show success message
+      alert('Asset deleted successfully!');
+    }
+
+    // Helper function to generate asset ID
+    function generateAssetId() {
+      const maxId = assets.reduce((max, asset) => {
+        const num = parseInt(asset.id.split('-')[1]);
+        return num > max ? num : max;
+      }, 0);
+      
+      return `AST-${String(maxId + 1).padStart(3, '0')}`;
+    }
+
+    // Function to format date
+    function formatDate(dateString) {
+      const options = { year: 'numeric', month: 'short', day: 'numeric' };
+      return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+  </script>
+</body>
+</html>
